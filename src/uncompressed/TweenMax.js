@@ -1,4 +1,3 @@
-/*!
  * VERSION: 1.15.1
  * DATE: 2015-01-20
  * UPDATES AND DOCS AT: http://greensock.com
@@ -5659,7 +5658,8 @@ if (_gsScope._gsDefine) { _gsScope._gsQueue.pop()(); } //necessary in case Tween
 				} else if (_self.frame > 10) { //don't trigger lagSmoothing if we're just waking up, and make sure that at least 10 frames have elapsed because of the iOS bug that we work around below with the 1.5-second setTimout().
 					_lastUpdate = _getTime() - _lagThreshold + 5;
 				}
-				_req = (_fps === 0) ? _emptyFunc : (!_useRAF || !_reqAnimFrame) ? function(f) { return setTimeout(f, ((_nextTime - _self.time) * 1000 + 1) | 0); } : _reqAnimFrame;
+				// _req = (_fps === 0) ? _emptyFunc : (!_useRAF || !_reqAnimFrame) ? function(f) { return setTimeout(f, ((_nextTime - _self.time) * 1000 + 1) | 0); } : _reqAnimFrame;
+				_req = _reqAnimFrame;
 				if (_self === _ticker) {
 					_tickerActive = true;
 				}
